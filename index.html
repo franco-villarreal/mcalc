@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>M C A L C</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="styles/fontawesome/css/font-awesome.min.css">
+  </head>
+  <body>
+    <header>
+      <a href="index.html"><img src="images/icon.png" href='index.html' width="80px" height="80px"></a>
+    </header>
+    <div class="contenedor">
+		
+		<div class="contenedor-izquierdo">
+      		<div class="contenedor-input">
+        		<div class="input-div-1">
+          <p><strong>Tono</strong></p>
+          <select name="tonalidad" id="tonalidad" class="input-menu-1" style="cursor:pointer">
+            <option value="C">C</option>
+            <option value="C#">C#</option>
+            <option value="D">D</option>
+            <option value="D#">D#</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="F#">F#</option>
+            <option value="G">G</option>
+            <option value="G#">G#</option>
+            <option value="A">A</option>
+            <option value="A#">A#</option>
+            <option value="B">B</option>
+         </select>
+        		</div>
+        		<div class="input-div-2">
+          			<p><strong>Supraescala</strong></p>
+          			<select name="escala" id="escala" class="input-menu-2"  style="cursor:pointer">
+            			<option value="MAYOR">MAYOR</option>
+            			<option value="MENOR">MENOR</option>
+            			<option value="MENOR ARMONICA">MENOR ARMONICA</option>
+            			<option value="PENTATONICA MENOR">PENTATONICA MENOR</option>
+            			<option value="PENTATONICA MAYOR">PENTATONICA MAYOR</option>
+            			<option value="JONICO">JONICO</option>
+            			<option value="DORICO">DORICO</option>
+            			<option value="FRIGIO">FRIGIO</option>
+            			<option value="LIDIO">LIDIO</option>
+            			<option value="MIXOLIDIO">MIXOLIDIO</option>
+            			<option value="EOLICO">EOLICO</option>
+            			<option value="LOCRIO">LOCRIO</option>
+          			</select>
+        		</div>
+        		<div class="input-div-3">
+          			<p><strong>Instrumento</strong></p>
+          			<select name="instrumento" id="instrumento" class="input-menu-3" style="cursor:pointer">
+           			<option value="BAJO4C">BAJO (4 CUERDAS)</option>
+            		<option value="GUITARRA6C">GUITARRA (6 CUERDAS)</option>
+          			</select>
+        		</div>
+        		
+      			
+      			<div class="metronomo">
+      				<p id="textMetronomo"><strong>Metrónomo</strong></p>
+      				 				
+      				<button class="boton-metronomo-play" id="btnPlay"><i class="fa fa-play" aria-hidden="true"></i></button>
+      				<button class="boton-metronomo-stop" id="btnStop"><i class="fa fa-stop" aria-hidden="true"></i></button>
+      				<input type="text" id="tempo" name="country" value='60' class="text-tempo" readonly>				
+      				<button class="boton-metronomo" id="btnSubir"><i class="fa fa-plus" aria-hidden="true"></i></button>
+      				<button class="boton-metronomo" id="btnBajar"><i class="fa fa-minus" aria-hidden="true"></i></button>
+      				
+      				
+      				</div>
+
+      			<div class="timer">
+      				<p id="textTimer"><strong>Temporizador</strong></p>
+      				 				
+      				<button class="boton-timer-play" id="btnPlayTimer"><i class="fa fa-play" aria-hidden="true"></i></button>
+      				<button class="boton-timer-stop" id="btnStopTimer"><i class="fa fa-pause" aria-hidden="true"></i></button>
+      				<button class="boton-timer-reset" id="btnResetTimer"><i class="fa fa-refresh" aria-hidden="true"></i></button>				
+      				<button class="boton-timer" id="btnSubirTimer"><i class="fa fa-plus" aria-hidden="true"></i></button>
+      				<button class="boton-timer" id="btnBajarTimer"><i class="fa fa-minus" aria-hidden="true"></i></button>
+      				<input type="text" id="timer" name="country" value='00:00' class="text-timer" readonly>
+      				
+      				
+      			</div>
+
+      			<div class="input-div-4">
+      				<p><strong>Volumen</strong></p>
+      				<input type="range" min="0" max="1" value="0.5" step="0.1" id="mislider" name="" class="slider">
+      			</div>
+
+      			<div class="boton-ver">
+        			<button style="cursor:pointer" id="btnVer">Actualizar</button>
+      			</div>
+
+    		</div>
+		</div>
+
+		<div class="contenedor-derecho">
+      		<div class="contenedor-info">
+      		<p id="titulo" class="text-info"></p>
+       	 	<table class="tabla" id="tabla">
+          		<tr id="row">
+          		</tr>
+        	</table>
+        	<p id="acordes" class="text-info"></p>
+        	<table class="tabla" id="tabla-acordes">
+            	<tr id="row-1">
+            	</tr>
+            	<tr id="row-2">
+            	</tr>
+            	<tr id="row-3">
+            	</tr>
+        	</table>
+      		</div>
+      
+    		<div class="contenedor-mastil" id="contenedorMastil">
+        
+		
+		<div class="numTrasteT0"><p></p><div class="cejilla t0"><div class="cuerda-1"><div class="nota" id="c1t0"></div></div><div class="cuerda-2"><div class="nota" id="c2t0"></div></div><div class="cuerda-3"><div class="nota" id="c3t0"></div></div><div class="cuerda-4"><div class="nota" id="c4t0"></div></div></div></div>
+
+        <div class="numTrasteT1"><p></p><div class="traste t1"><div class="cuerda-1"><div class="nota" id="c1t1"></div></div><div class="cuerda-2"><div class="nota" id="c2t1"></div></div><div class="cuerda-3"><div class="nota" id="c3t1"></div></div><div class="cuerda-4"><div class="nota" id="c4t1"></div></div></div></div>
+
+        <div class="numTrasteT2"><p></p><div class="traste t2"><div class="cuerda-1"><div class="nota" id="c1t2"></div></div><div class="cuerda-2"><div class="nota" id="c2t2"></div></div><div class="cuerda-3"><div class="nota" id="c3t2"></div></div><div class="cuerda-4"><div class="nota" id="c4t2"></div></div></div></div>
+
+        <div class="numTrasteT3"><p>3</p><div class="traste t3"><div class="cuerda-1"><div class="nota" id="c1t3"></div></div><div class="cuerda-2"><div class="nota" id="c2t3"></div></div><div class="cuerda-3"><div class="nota" id="c3t3"></div></div><div class="cuerda-4"><div class="nota" id="c4t3"></div></div></div></div>
+
+        <div class="numTrasteT4"><p></p><div class="traste t4"><div class="cuerda-1"><div class="nota" id="c1t4"></div></div><div class="cuerda-2"><div class="nota" id="c2t4"></div></div><div class="cuerda-3"><div class="nota" id="c3t4"></div></div><div class="cuerda-4"><div class="nota" id="c4t4"></div></div></div></div>
+
+        <div class="numTrasteT5"><p>5</p><div class="traste t5"><div class="cuerda-1"><div class="nota" id="c1t5"></div></div><div class="cuerda-2"><div class="nota" id="c2t5"></div></div><div class="cuerda-3"><div class="nota" id="c3t5"></div></div><div class="cuerda-4"><div class="nota" id="c4t5"></div></div></div></div>
+
+        <div class="numTrasteT6"><p></p><div class="traste t6"><div class="cuerda-1"><div class="nota" id="c1t6"></div></div><div class="cuerda-2"><div class="nota" id="c2t6"></div></div><div class="cuerda-3"><div class="nota"  id="c3t6"></div></div><div class="cuerda-4"><div class="nota" id="c4t6"></div></div></div></div>
+
+        <div class="numTrasteT7"><p>7</p><div class="traste t7"><div class="cuerda-1"><div class="nota" id="c1t7"></div></div><div class="cuerda-2"><div class="nota" id="c2t7"></div></div><div class="cuerda-3"><div class="nota" id="c3t7"></div></div><div class="cuerda-4"><div class="nota" id="c4t7"></div></div></div></div>
+
+        <div class="numTrasteT8"><p></p><div class="traste t8"><div class="cuerda-1"><div class="nota" id="c1t8"></div></div><div class="cuerda-2"><div class="nota" id="c2t8"></div></div><div class="cuerda-3"><div class="nota" id="c3t8"></div></div><div class="cuerda-4"><div class="nota" id="c4t8"></div></div></div></div>
+
+        <div class="numTrasteT9"><p>9</p><div class="traste t9"><div class="cuerda-1"><div class="nota" id="c1t9"></div></div><div class="cuerda-2"><div class="nota" id="c2t9"></div></div><div class="cuerda-3"><div class="nota" id="c3t9"></div></div><div class="cuerda-4"><div class="nota" id="c4t9"></div></div></div></div>
+
+        <div class="numTrasteT10"><p></p><div class="traste t10"><div class="cuerda-1"><div class="nota" id="c1t10"></div></div><div class="cuerda-2"><div class="nota" id="c2t10"></div></div><div class="cuerda-3"><div class="nota"id="c3t10"></div></div><div class="cuerda-4"><div class="nota" id="c4t10"></div></div></div></div>
+
+        <div class="numTrasteT11"><p></p><div class="traste t11"><div class="cuerda-1"><div class="nota" id="c1t11"></div></div><div class="cuerda-2"><div class="nota" id="c2t11"></div></div><div class="cuerda-3"><div class="nota" id="c3t11"></div></div><div class="cuerda-4"><div class="nota" id="c4t11"></div></div></div></div>
+
+        <div class="numTrasteT12"><p>12</p><div class="traste t12"><div class="cuerda-1"><div class="nota" id="c1t12"></div></div><div class="cuerda-2"><div class="nota" id="c2t12"></div></div><div class="cuerda-3"><div class="nota" id="c3t12"></div></div><div class="cuerda-4"><div class="nota" id="c4t12"></div></div></div></div>
+    		</div>
+
+    		<div class="contenedor-mastil-g6" id="contenedorMastilG6">
+        
+		
+		<div class="numTrasteT0"><p></p><div class="cejilla t0"><div class="cuerda-1-g6"><div class="nota" id="g6c1t0"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t0"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t0"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t0"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t0"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t0"></div></div></div></div>
+
+        <div class="numTrasteT1"><p></p><div class="traste t1"><div class="cuerda-1-g6"><div class="nota" id="g6c1t1"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t1"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t1"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t1"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t1"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t1"></div></div></div></div>
+
+        <div class="numTrasteT2"><p></p><div class="traste t2"><div class="cuerda-1-g6"><div class="nota" id="g6c1t2"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t2"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t2"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t2"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t2"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t2"></div></div></div></div>
+
+        <div class="numTrasteT3"><p>3</p><div class="traste t3"><div class="cuerda-1-g6"><div class="nota" id="g6c1t3"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t3"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t3"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t3"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t3"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t3"></div></div></div></div>
+
+        <div class="numTrasteT4"><p></p><div class="traste t4"><div class="cuerda-1-g6"><div class="nota" id="g6c1t4"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t4"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t4"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t4"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t4"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t4"></div></div></div></div>
+
+        <div class="numTrasteT5"><p>5</p><div class="traste t5"><div class="cuerda-1-g6"><div class="nota" id="g6c1t5"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t5"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t5"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t5"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t5"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t5"></div></div></div></div>
+
+        <div class="numTrasteT6"><p></p><div class="traste t6"><div class="cuerda-1-g6"><div class="nota" id="g6c1t6"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t6"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t6"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t6"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t6"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t6"></div></div></div></div>
+
+        <div class="numTrasteT7"><p>7</p><div class="traste t7"><div class="cuerda-1-g6"><div class="nota" id="g6c1t7"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t7"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t7"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t7"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t7"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t7"></div></div></div></div>
+
+        <div class="numTrasteT8"><p></p><div class="traste t8"><div class="cuerda-1-g6"><div class="nota" id="g6c1t8"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t8"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t8"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t8"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t8"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t8"></div></div></div></div>
+
+        <div class="numTrasteT9"><p>9</p><div class="traste t9"><div class="cuerda-1-g6"><div class="nota" id="g6c1t9"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t9"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t9"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t9"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t9"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t9"></div></div></div></div>
+
+        <div class="numTrasteT10"><p></p><div class="traste t10"><div class="cuerda-1-g6"><div class="nota" id="g6c1t10"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t10"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t10"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t10"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t10"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t10"></div></div></div></div>
+
+        <div class="numTrasteT11"><p></p><div class="traste t11"><div class="cuerda-1-g6"><div class="nota" id="g6c1t11"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t11"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t11"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t11"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t11"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t11"></div></div></div></div>
+
+        <div class="numTrasteT12"><p>12</p><div class="traste t12"><div class="cuerda-1-g6"><div class="nota" id="g6c1t12"></div></div><div class="cuerda-2-g6"><div class="nota" id="g6c2t12"></div></div><div class="cuerda-3-g6"><div class="nota" id="g6c3t12"></div></div><div class="cuerda-4-g6"><div class="nota" id="g6c4t12"></div></div><div class="cuerda-5-g6"><div class="nota" id="g6c5t12"></div></div><div class="cuerda-6-g6"><div class="nota" id="g6c6t12"></div></div></div></div>
+    		</div>
+		</div>
+	</div>
+	
+    <script src="script/main.js"></script>
+  </body>
+</html>
