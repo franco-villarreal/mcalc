@@ -1,29 +1,33 @@
 html {
   font-size: 10px;
   font-family: 'Open Sans', sans-serif;
-  background-color: white;
+  background-color: black;
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
 }
 
 header {
   background-color: #086A87;
-  width: 99.5%;
+  width: 80%;
   height: 105px;
-  margin: -10px 0px 10px -10px;
-  padding: 0px 0px 0px 25px;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
   vertical-align: center;
   align-content: center;
-  box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.5);
   position: fixed;
 }
-
+header a{
+  margin-left: 30px;
+}
+body {
+  width: 80%;
+  margin: 0px auto;
+}
 .contenedor {
   padding-top: 100px;
   width: 100%;
-  height: 800px;
+  height: 650px;
   margin: 0px auto;
-  background-color: white;
   vertical-align: center;
   align-content: center;
   text-align: center;
@@ -34,7 +38,7 @@ header {
 .contenedor-izquierdo {
   float: left;
   width: 25%;
-  height: 800px;
+  height: 100%;
   vertical-align: center;
   align-content: center;
   text-align: center;
@@ -45,6 +49,8 @@ header {
 .contenedor-derecho {
   float: right;
   width: 75%;
+  height: 100%;
+  background-color: #f0f0f0;
   vertical-align: center;
   align-content: center;
   text-align: center;
@@ -92,13 +98,14 @@ table {
   border-collapse: collapse;
   width: 100%;
   font-size: 16px;
-  padding: 0px;
+  padding: 10px;
   border-radius: 10px;
 
 }
 
 .tabla {
   display: none;
+  padding: 10px;
   margin-top: 50px;
 }
 
@@ -108,7 +115,7 @@ td {
   text-align: center;
   border: 0.5px solid black;
   border-collapse: collapse;
-  width: 100px;
+  width: 62px;
   height: 35px;
 }
 
@@ -422,7 +429,7 @@ button:hover {
 }
 
 .boton-metronomo {
-  width: 45px;
+  width: 18%;
   height: 35px;
   border: 0px;
   border-radius: 5px;
@@ -432,7 +439,7 @@ button:hover {
 }
 
 .text-tempo {
-  width: 45px;
+  width: 18%;
   height: 35px;
   border: 0px;
   border-radius: 5px;
@@ -443,7 +450,8 @@ button:hover {
 }
 
 .boton-metronomo-play {
-  width: 45px;
+  font-size: 1em;
+  width: 18%;
   height: 35px;
   border: 0px;
   border-radius: 5px;
@@ -458,7 +466,7 @@ button:hover {
 }
 
 .boton-metronomo-stop {
-  width: 45px;
+  width: 18%;
   height: 35px;
   border: 0px;
   border-radius: 5px;
@@ -484,7 +492,7 @@ button:hover {
 }
 
 .boton-timer {
-  width: 45px;
+  width: 18%;
   height: 35px;
   border: 0px;
   border-radius: 5px;
@@ -494,7 +502,7 @@ button:hover {
 }
 
 .text-timer {
-  width: 235px;
+  width: 94%;
   height: 35px;
   border: 0px;
   border-radius: 5px;
@@ -506,7 +514,7 @@ button:hover {
 }
 
 .boton-timer-play {
-  width: 45px;
+  width: 18%;
   height: 35px;
   border: 0px;
   border-radius: 5px;
@@ -521,7 +529,7 @@ button:hover {
 }
 
 .boton-timer-stop {
-  width: 45px;
+  width: 18%;
   height: 35px;
   border: 0px;
   border-radius: 5px;
@@ -536,7 +544,7 @@ button:hover {
 }
 
 .boton-timer-reset {
-  width: 45px;
+  width: 18%;
   height: 35px;
   border: 0px;
   border-radius: 5px;

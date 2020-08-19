@@ -1,32 +1,25 @@
-var btn = document.getElementById('btnVer');
 var titulo = document.getElementById('titulo');
 var acordes = document.getElementById('acordes');
-
 window.onload = ocultarMastil();
 window.onload = ocultarMastilG6();
-
 function ocultarMastil(){
 	var elemento = document.getElementById('contenedorMastil');
 	elemento.style.display = 'none';
 }
-
 function ocultarMastilG6(){
 	var elemento = document.getElementById('contenedorMastilG6');
 	elemento.style.display = 'none';
 }
-
 function mostrarMastil(){
 	ocultarMastilG6();
 	var elemento = document.getElementById('contenedorMastil');
 	elemento.style.display = 'block';
 }
-
 function mostrarMastilG6(){
 	ocultarMastil();
 	var elemento = document.getElementById('contenedorMastilG6');
 	elemento.style.display = 'block';
 }
-
 var NOTAS = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 var SEMITONO = 1;
 var TONO = SEMITONO*2;
@@ -37,39 +30,26 @@ var LIDIO = [0,TONO,TONO,TONO,SEMITONO,TONO,TONO];
 var MIXOLIDIO = [0,TONO,TONO,SEMITONO,TONO,TONO,SEMITONO];
 var EOLICO = [0,TONO,SEMITONO,TONO,TONO,SEMITONO,TONO];
 var LOCRIO = [0,SEMITONO,TONO,TONO,SEMITONO,TONO,TONO];
-
 var MAYOR = [0,TONO,TONO,SEMITONO,TONO,TONO,TONO];
 var MENOR = [0,TONO,SEMITONO,TONO,TONO,SEMITONO,TONO];
 var MENOR_ARMONICA = [0,TONO,SEMITONO,TONO,TONO,SEMITONO,TONO+SEMITONO];
 var PENTATONICA_MENOR = [0,TONO+SEMITONO,TONO,TONO,TONO+SEMITONO];
 var PENTATONICA_MAYOR = [0,TONO,TONO,TONO+SEMITONO,TONO];
-
 var NOTAS_CUERDAS = [['G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G'],['D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D'],['A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A'],['E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E']];
 var NOTAS_CUERDAS_G6 = [['E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E'],['B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B'],['G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G'],['D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D'],['A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A'],['E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E']];
-btn.onclick = function() {
-	calcularTonalidad();
-}
-
+var inputTonalidad = document.getElementById("tonalidad");
+var inputEscala = document.getElementById("escala");
+var inputInstrumento = document.getElementById("instrumento");
 window.onload = calcularTonalidad();
-/*	var tono = prompt('Por favor, ingrese la tonalidad deseada');
-	if (tono === 'C' || tono === 'C#' || tono === 'D' || tono === 'D#' || tono === 'E' || tono === 'F' || tono === 'F#' || tono === 'G' || tono === 'G#' || tono === 'A' || tono === 'A#' || tono === 'B'){
-		return tono;
-	} else {
-		alert('El dato ingresado es incorrecto');
-		setTonalidad();
-	}
-}
-
-function setEscala(){
-	var escala = prompt('Por favor, ingrese la escala deseada');
-	if (escala === 'MENOR' || escala === 'MAYOR' || escala === 'MENOR ARMONICA'){
-		return escala;
-	} else {
-		alert('El dato ingresado es incorrecto');
-		setEscala();
-	}
-}
-*/
+inputTonalidad.addEventListener('change', () => {
+	calcularTonalidad();
+});
+inputEscala.addEventListener('change', (event) => {
+	calcularTonalidad();
+});
+inputInstrumento.addEventListener('change', (event) => {
+	calcularTonalidad();
+});
 function getPosNota(tonalidad){
 	var posNota = -1;
 	var i = 0;
@@ -81,7 +61,6 @@ function getPosNota(tonalidad){
 	}
 	return posNota;
 }
-
 function reordenarNotas(tonalidad){
 	var posNota = getPosNota(tonalidad);
 	var notas = new Array(12);
@@ -94,10 +73,9 @@ function reordenarNotas(tonalidad){
 	}
 	return notas;
 }
-
 function calcularGrados(){
-	var tonalidad = document.getElementById("tonalidad").value;
-	var escala = document.getElementById("escala").value;
+	var tonalidad = inputTonalidad.value;
+	var escala = inputEscala.value;
 	var intervalo = 0;
 	titulo.innerHTML = tonalidad + ' ' + escala;
 	acordes.innerHTML = 'ACORDES';
@@ -201,9 +179,8 @@ function calcularGrados(){
 	}
 	return grados;
 }
-
 function calcularTonalidad(){
-	var instrumento = document.getElementById("instrumento").value;
+	var instrumento = inputInstrumento.value;
 	var grados = calcularGrados();
 	var row = document.getElementById("row");
 	var row1 = document.getElementById("row-1");
@@ -223,12 +200,10 @@ function calcularTonalidad(){
 	document.getElementById("tabla").style.display = "inline";
 	marcarMastil(grados, instrumento);
 }
-
 function listarAcordes(grados){
 	var row1 = document.getElementById("row-1");
 	var row2 = document.getElementById("row-2");
 	var row3 = document.getElementById("row-3");
-
 	for (var i=0; i<grados.length; i++){
 		var td = document.createElement('td');
         td.innerHTML = grados[i];
@@ -257,7 +232,6 @@ function listarAcordes(grados){
 	}
 	document.getElementById("tabla-acordes").style.display = "inline";
 }
-
 function marcarMastil(grados, instrumento){
 	var inst = 'INTRUMENTO NO SELECCIONADO';
 	var cantCuerdas = 0;
@@ -286,17 +260,13 @@ function marcarMastil(grados, instrumento){
 			var x = 0;
 			var encontrado = false;
 			while (x<grados.length && encontrado === false){
-
 				if (notasPorCuerda[j][i] == grados[0]){
 					cuerdas[j][i].style.display = 'inline-block';
 					cuerdas[j][i].style.backgroundColor = '#FF8000';
-					/*cuerdas[j][i].style.border = '1px solid #DF7401';*/
 					encontrado = true;
 				} else if(notasPorCuerda[j][i] == grados[x]){
-
 					cuerdas[j][i].style.display = 'inline-block';
-					cuerdas[j][i].style.background = '#0489B1';
-					/*cuerdas[j][i].style.border = '1px solid #086A87';*/
+					cuerdas[j][i].style.background = '#0489B1';				
 					encontrado = true;
 				}
 				x++;
@@ -312,47 +282,34 @@ function marcarMastil(grados, instrumento){
 		break;
 	}
 }
-
 var notas = document.getElementsByClassName('nota');
-
 for (var i in notas){
-
 	(function(i){
     notas[i].onclick = function(){
 
     	var instSel = document.getElementById("instrumento").value;
     	var carpeta = 'guitarra';
-    	var slider = document.getElementById("mislider").value;
-
     	if (instSel === 'BAJO4C'){
     		carpeta = 'bajo';
     	}
-
     	if (notas[i].style.display === 'none'){
-
 		} else {
 			var audio = new Audio('sounds/' + carpeta + '/sound' + i + '.mp3');
-			audio.volume = slider;
+			audio.volume = 1;
 			audio.play();
 		}
     };
  	})
   (i);
 }
-
 for (var i in notas){
-
 	(function(i){
-
     notas[i].onmouseover = function(){
 
 		notas[i].style.width = '18px';
 		notas[i].style.height = '18px';
 		notas[i].style.margin = '-8px 0px 0px -10px';
-
-
     };
-
     notas[i].onmouseout = function(){
 
 		notas[i].style.width = '13px';
@@ -360,16 +317,13 @@ for (var i in notas){
 		notas[i].style.margin = '-6px 0px 0px -8px';
 
     };
-
  	})
   (i);
 }
 // METRONOMO
-
 var tempo = document.getElementById("tempo");
 var btnSubirTempo = document.getElementById("btnSubir");
 var btnBajarTempo = document.getElementById('btnBajar');
-
 btnSubirTempo.onclick = function(){
 	if (parseInt(tempo.value, 10) < 300){
 		tempo.value = parseInt(tempo.value, 10) + 5;
@@ -378,7 +332,6 @@ btnSubirTempo.onclick = function(){
 	audio.volume = 0.25;
 	audio.play();
 }
-
 btnBajarTempo.onclick = function(){
 	if (parseInt(tempo.value, 10) > 0){
 		tempo.value = parseInt(tempo.value, 10) - 5;
@@ -387,10 +340,8 @@ btnBajarTempo.onclick = function(){
 	audio.volume = 0.25;
 	audio.play();
 }
-
 var btnPlay = document.getElementById("btnPlay");
 var btnStop = document.getElementById('btnStop');
-
 btnPlay.onclick = function(){
 	deshabilitarBotones();
 	var miliseconds = 60000/parseInt(tempo.value, 10);
@@ -399,23 +350,18 @@ btnPlay.onclick = function(){
 	tempoLoop;
 	function metronomo(){
 		textMetro.style.color = 'red';
-		var slider = document.getElementById("mislider").value;
 		var audio = new Audio('sounds/click.mp3');
-		audio.volume = slider;
+		audio.volume = 1;
 		audio.play();
 	}
-
 	btnStop.onclick = function(){clearInterval(tempoLoop);textMetro.style.color = 'black'; habilitarBotones();}
-
 }
-
 function habilitarBotones(){
 	btnPlay.disabled = false;
 	btnSubirTempo.disabled = false;
 	btnBajarTempo.disabled = false;
 	btnStop.disabled = true;
 }
-
 function deshabilitarBotones(){
 	btnPlay.disabled = true;
 	btnSubirTempo.disabled = true;
@@ -423,23 +369,19 @@ function deshabilitarBotones(){
 	btnStop.disabled = false;
 }
 // TEMPORIZADOR
-
 var timer = document.getElementById("timer");
 var btnSubirTimer = document.getElementById("btnSubirTimer");
 var btnBajarTimer = document.getElementById('btnBajarTimer');
 var btnPlayTimer = document.getElementById('btnPlayTimer');
 var btnStopTimer = document.getElementById('btnStopTimer');
 var btnResetTimer = document.getElementById('btnResetTimer');
-
 var formatTimer = new Intl.NumberFormat("en-US", { style: "decimal", minimumIntegerDigits: 2 });
 var hours = 0;
 var mins = 0;
-
 btnSubirTimer.onclick = function(){
 	subirTimer();
 
 }
-
 function subirTimer(){
 	mins += 1;
 	if (mins >= 60){
@@ -448,7 +390,6 @@ function subirTimer(){
 	}
 	timer.value = formatTimer.format(hours) + ':' + formatTimer.format(mins);
 }
-
 btnSubirTimer.onmousedown = function(){
 	var loop = setInterval(subirTimer, 100);
 	loop;
@@ -458,11 +399,9 @@ btnSubirTimer.onmousedown = function(){
 
 	timer.value = formatTimer.format(hours) + ':' + formatTimer.format(mins);
 }
-
 btnBajarTimer.onclick = function(){
 	bajarTimer();
 }
-
 function bajarTimer(){
 	mins -= 1;
 	if (mins < 0 && hours > 0){
@@ -473,7 +412,6 @@ function bajarTimer(){
 	}
 	timer.value = formatTimer.format(hours) + ':' + formatTimer.format(mins);
 }
-
 btnBajarTimer.onmousedown = function(){
 	var loop = setInterval(bajarTimer, 100);
 	loop;
@@ -482,13 +420,11 @@ btnBajarTimer.onmousedown = function(){
 		}
 	timer.value = formatTimer.format(hours) + ':' + formatTimer.format(mins);
 }
-
 btnResetTimer.onclick = function(){
 	hours = 0;
 	mins = 0;
 	timer.value = formatTimer.format(hours) + ':' + formatTimer.format(mins);
 }
-
 btnPlayTimer.onclick = function(){
 
 		deshabilitarBotonesTimer()
@@ -499,8 +435,6 @@ btnPlayTimer.onclick = function(){
 			habilitarBotonesTimer();
 		}
 }
-
-
 function contadorTimer(){
 	if (mins === 0 && hours === 0){
 		mins = 0;
@@ -513,7 +447,6 @@ function contadorTimer(){
 	}
 	timer.value = formatTimer.format(hours) + ':' + formatTimer.format(mins);
 }
-
 function habilitarBotonesTimer(){
 	btnPlayTimer.disabled = false;
 	btnSubirTimer.disabled = false;
@@ -521,7 +454,6 @@ function habilitarBotonesTimer(){
 	btnStopTimer.disabled = true;
 	btnResetTimer.disabled = false;
 }
-
 function deshabilitarBotonesTimer(){
 	btnPlayTimer.disabled = true;
 	btnSubirTimer.disabled = true;
